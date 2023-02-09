@@ -1,0 +1,43 @@
+{
+  "name": "@vodacom/web-insights",
+  "version": "1.0.0",
+  "description": "A module exposing the Insights framework for web apps",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.4",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/preset-env": "^7.11.0",
+    "@rollup/plugin-commonjs": "^11.0.2",
+    "@rollup/plugin-node-resolve": "^7.1.1",
+    "@types/react": "^18.0.27",
+    "@typescript-eslint/eslint-plugin": "^5.48.2",
+    "@typescript-eslint/parser": "^5.48.2",
+    "babel-eslint": "^10.0.3",
+    "del-cli": "^2.0.0",
+    "eslint": "^8.32.0",
+    "eslint-plugin-react": "^7.32.1",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "pre-commit": "^1.1.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "rollup": "^1.31.0",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-eslint": "^7.0.0",
+    "rollup-plugin-includepaths": "^0.2.3",
+    "typescript": "^4.9.5"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead"
+  ],
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@vodacom/web-events": "^1.0.1"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "name": "@vodacom/web-config",
+  "version": "3.1.21",
+  "description": "Config fetching for web",
+  "main": "lib/index.js",
+  "license": "UNLICENSED",
+  "files": [
+    "lib/"
+  ],
+  "scripts": {
+    "audit": "npm audit",
+    "build": "npm run clean && babel src/lib --out-dir lib --copy-files",
+    "clean": "del-cli lib coverage .nyc_output",
+    "check": "npm run audit",
+    "coverage": "nyc --reporter=lcov --reporter=text --reporter=html npm test",
+    "lint": "echo lint",
+    "test": "echo test",
+    "validate": "npm run lint && npm test",
+    "prepare": "npm run build && npm run validate",
+    "patch": "npm version patch",
+    "push": "git push"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/preset-env": "^7.11.0",
+    "babel-eslint": "^10.0.2",
+    "babel-preset-minify": "^0.5.0",
+    "del-cli": "^2.0.0",
+    "nyc": "^14.1.1",
+    "pmm": "^2.0.0",
+    "pre-commit": "^1.2.2"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead"
+  ]
+}

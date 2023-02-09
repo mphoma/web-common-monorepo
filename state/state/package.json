@@ -1,0 +1,61 @@
+{
+  "name": "@vodacom/web-state",
+  "version": "7.0.1",
+  "description": "Data storage for web",
+  "main": "lib/index.js",
+  "files": [
+    "lib/"
+  ],
+  "keywords": [
+    "browser",
+    "web",
+    "module",
+    "storage"
+  ],
+  "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@psdm101zatcrh.vodacom.corp:7999/vnm/vod-npm-web-state.git"
+  },
+  "scripts": {
+    "audit": "npm audit",
+    "build": "npm run clean && babel src/lib --out-dir lib --copy-files",
+    "clean": "del-cli lib coverage .nyc_output",
+    "check": "npm run audit",
+    "coverage": "nyc --reporter=lcov --reporter=text --reporter=html npm test",
+    "lint": "echo lint",
+    "test": "echo test",
+    "validate": "npm run lint && npm test",
+    "prepare": "npm run build && npm run validate",
+    "patch": "npm version patch",
+    "push": "git push"
+  },
+  "author": {
+    "name": "Matthew Russell",
+    "email": "Matthew.Russell@vcontractor.co.za"
+  },
+  "pre-commit": [
+    "validate"
+  ],
+  "devDependencies": {
+    "@babel/cli": "^7.20.7",
+    "@babel/core": "^7.20.12",
+    "@babel/eslint-parser": "^7.19.1",
+    "@babel/preset-env": "^7.20.2",
+    "@types/md5": "^2.3.2",
+    "@types/qs": "^6.9.7",
+    "babel-preset-minify": "^0.5.2",
+    "del-cli": "^5.0.0",
+    "nyc": "^15.1.0",
+    "pmm": "^2.0.0",
+    "pre-commit": "^1.2.2",
+    "typescript": "^4.9.4"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead"
+  ],
+  "dependencies": {
+    "ava": "^5.1.1"
+  }
+}

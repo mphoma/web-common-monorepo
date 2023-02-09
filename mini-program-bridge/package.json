@@ -1,0 +1,42 @@
+{
+  "name": "@vodacom/mini-program-bridge",
+  "version": "2.11.0",
+  "description": "A bridge that exposes functionality of the mini program to a web site viewed within a web-view.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "browserslist": [
+    ">0.2%",
+    "not dead"
+  ],
+  "devDependencies": {
+    "@types/react": "^18.0.27",
+    "typescript": "^4.9.4",
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.4",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/preset-env": "^7.11.0",
+    "@babel/preset-react": "^7.7.4",
+    "@rollup/plugin-babel": "^5.2.1",
+    "@rollup/plugin-commonjs": "^11.0.2",
+    "@rollup/plugin-eslint": "^8.0.1",
+    "@rollup/plugin-node-resolve": "^7.1.1",
+    "babel-eslint": "^10.0.3",
+    "del-cli": "^4.0.0",
+    "eslint": "^7.30.0",
+    "pre-commit": "^1.1.2",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0",
+    "rollup": "^2.34.0",
+    "rollup-plugin-includepaths": "^0.2.3"
+  },
+  "peerDependencies": {
+    "react": ">=16.0.0",
+    "react-dom": ">=16.0.0",
+    "uuid": ">=8.0.0"
+  }
+}

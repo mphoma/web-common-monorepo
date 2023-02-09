@@ -1,0 +1,32 @@
+{
+  "name": "@vodacom/web-env",
+  "version": "3.0.22",
+  "description": "Interface fro setting environment contstants",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo test",
+    "start": "webpack-dev-server --mode development",
+    "build": "babel src --out-dir ./lib",
+    "patch": "npm version patch",
+    "prepare": "npm run build",
+    "validate": "echo validate",
+    "push": "git push"
+  },
+  "keywords": [
+    "common"
+  ],
+  "license": "UNLICENSED",
+  "browserslist": [
+    ">0.2%",
+    "not dead"
+  ],
+  "devDependencies": {
+    "@babel/cli": "^7.8.3",
+    "@babel/core": "^7.8.3",
+    "@babel/plugin-proposal-class-properties": "^7.7.4",
+    "@babel/plugin-proposal-optional-chaining": "^7.8.3",
+    "@babel/preset-env": "^7.11.0",
+    "pre-commit": "^1.1.2",
+    "prop-types": "^15.7.2"
+  }
+}

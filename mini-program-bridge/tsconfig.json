@@ -1,12 +1,32 @@
 {
+  "include": ["src", "rollup.config.ts"],
+  "exclude": [
+    "dist",
+    "node_modules"
+  ],
   "compilerOptions": {
-    "target": "es5",
     "module": "commonjs",
+    "lib": ["DOM", "esnext","es6"],
+    "importHelpers": true,
     "declaration": true,
-    "outDir": "./lib",
-    "strict": true,
-    "lib": [ "DOM" ],
-  },
-  "include": ["src"],
-  "exclude": ["node_modules", "**/__tests__/*"]
+    "sourceMap": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "moduleResolution": "node",
+    "jsx": "react",
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "typeRoots": ["./src/types", "./types"],
+    "strictNullChecks": true,
+    "target": "es5",                                                                 
+    "allowJs": true,
+    "outDir": "build",                          
+    "rootDir": "src",
+    "strict": true,         
+    "noImplicitAny": false,
+    "esModuleInterop": true,
+    "resolveJsonModule": true
+  }
 }

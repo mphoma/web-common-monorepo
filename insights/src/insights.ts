@@ -10,12 +10,6 @@ export const Insight = {
     Error: 'web-insights-error',
 };
 
-// interface AddProvider {
-//     // [index: string]: string;
-//     name: string;
-//     providers: {};
-//   }
-
 export class Insights {
 
     public context: any;
@@ -27,10 +21,12 @@ export class Insights {
     static providers = '';
     static context = {};
     static contextProvider = {};
+    
 
     static init = ({
         contextProvider,
         providers,
+        Insights
     } : any = {}) => {
 
         Insights.providers = providers || {};
@@ -42,20 +38,22 @@ export class Insights {
     };
 
     static delegate = (e : any) => {
-
+        
+        
         for (let [provider , _] of Object.entries(Insights.providers)) {
+            
 
-            if (!provider.Insights) {
-                continue;
-            };
+            // if (!provider.Insights) {
+                // continue;
+            // };
 
-            typeof provider.Insights[e.name] === 'function' && provider.Insights[e.name](e.data);
+            // typeof provider.Insights[e.name] === 'function' && provider.Insights[e.name](e.data);
         }
 
     };
 
     static addProvider = (
-        name : string,
+        name : '',
         provider: string,
     )  => {
         if (Insights.providers[name]) {

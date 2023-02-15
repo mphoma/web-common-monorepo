@@ -112,7 +112,7 @@ export const removePendingMessage = (messageId: string) => {
  */
 export const postMessageToMiniProgram = (
     message: string,
-    callback: string,
+    callback: any,
     {
         data,
         once = true,
@@ -230,7 +230,7 @@ miniProgramApi.onMessage = (response: any) => {
  */
 export const watchShake = async () => {
     return new Promise<void>((resolve, reject) => {
-        postMessageToMiniProgram(Messages.watchShake, (error) => {
+        postMessageToMiniProgram(Messages.watchShake, (error: any) => {
             if (error) {
                 reject(error);
                 console.error(`Error in watchShake: ${error?.message}`, {
@@ -240,7 +240,6 @@ export const watchShake = async () => {
             }
 
             resolve();
-
         });
     });
 };
@@ -252,7 +251,7 @@ export const watchShake = async () => {
  */
 export const choosePhoneContact = async () => {
     return new Promise((resolve, reject) => {
-        postMessageToMiniProgram(Messages.choosePhoneContact, (error, data) => {
+        postMessageToMiniProgram(Messages.choosePhoneContact, (error: any, data: any) => {
             if (error) {
                 reject(error);
                 console.error(`Error in choosePhoneContact: ${error?.message}`, {
@@ -262,6 +261,7 @@ export const choosePhoneContact = async () => {
             }
 
             resolve(data);
+            return;
         });
     });
 };
@@ -273,7 +273,7 @@ export const choosePhoneContact = async () => {
  */
 export const getSystemInfo = async () => {
     return new Promise((resolve, reject) => {
-        postMessageToMiniProgram(Messages.getSystemInfo, (error, data) => {
+        postMessageToMiniProgram(Messages.getSystemInfo, (error: any, data: any) => {
             if (error) {
                 reject(error);
                 console.error(`Error in getSystemInfo: ${error?.message}`, {
@@ -300,7 +300,7 @@ export const navigateToMiniProgram = async (appId: string,
     extraData: number,
 ) => {
     return new Promise((resolve, reject) => {
-        postMessageToMiniProgram(Messages.navigateToMiniProgram, (error, data) => {
+        postMessageToMiniProgram(Messages.navigateToMiniProgram, (error: any, data: any) => {
             if (error) {
                 reject(error);
                 console.error(`Error in navigateToMiniProgram: ${error?.message}`, {
@@ -310,6 +310,7 @@ export const navigateToMiniProgram = async (appId: string,
             }
 
             resolve(data);
+            return;
         }, {
             data: {
                 appId,
@@ -328,7 +329,7 @@ export const navigateToMiniProgram = async (appId: string,
  */
 export const logCurrentPath = async (path: string) => {
     return new Promise<void>(resolve => {
-        postMessageToMiniProgram(Messages.logCurrentPath, (): void => {
+        postMessageToMiniProgram(Messages.logCurrentPath, () => {
             resolve();
         }, {
             data: {
@@ -345,7 +346,7 @@ export const logCurrentPath = async (path: string) => {
  */
 export const getAuthCode = async (scopes: string[]) => {
     return new Promise((resolve, reject) => {
-        postMessageToMiniProgram(Messages.getAuthCode, (error, data) => {
+        postMessageToMiniProgram(Messages.getAuthCode, (error: any, data: any) => {
 
             try {
 
@@ -492,7 +493,7 @@ export const vibrate = async () => {
  */
 export const getNetworkType = async () => {
     return new Promise((resolve, reject) => {
-        postMessageToMiniProgram(Messages.getNetworkType, (error, data) => {
+        postMessageToMiniProgram(Messages.getNetworkType, (error: any, data: any) => {
             if (error) {
                 reject(error);
                 console.error(`Error in getNetworkType: ${error?.message}`, {
@@ -515,7 +516,7 @@ export const setKeepScreenOn = (val: boolean) => {
     return new Promise<void>((resolve, reject) => {
         postMessageToMiniProgram(
             Messages.setKeepScreenOn,
-            (error, data) => {
+            (error) => {
                 if (error) {
                     reject(error);
                     console.error(`Error in setScreenOn: ${error?.message}`, {
@@ -614,7 +615,7 @@ export const getStorageSync = async (key: string) => {
     return new Promise((resolve, reject) => {
         postMessageToMiniProgram(
             Messages.getStorageSync,
-            (error, data) => {
+            (error: any, data: any) => {
 
                 if (error) {
 
@@ -659,7 +660,7 @@ export const getStorage = async (key: string) => {
     return new Promise((resolve, reject) => {
         postMessageToMiniProgram(
             Messages.getStorage,
-            (error, data) => {
+            (error: any, data: any) => {
 
                 if (error) {
 
@@ -717,7 +718,7 @@ export const setStorage = async (key: string, value: any) => {
     return new Promise<void>((resolve, reject) => {
         postMessageToMiniProgram(
             Messages.setStorage,
-            (error, data) => {
+            (error) => {
 
                 if (error) {
 
@@ -774,10 +775,10 @@ export const setStorageSync = async (key: string, value: any) => {
         return Promise.reject(Error('Invalid "value" passed to setStorageSync'));
     }
 
-    return new Promise((resolve, reject) => {
+    return new Promise<void>((resolve, reject) => {
         postMessageToMiniProgram(
             Messages.setStorageSync,
-            (error, data) => {
+            (error) => {
 
                 if (error) {
 
@@ -824,7 +825,7 @@ export const removeStorage = async (key: string) => {
     return new Promise<void>((resolve, reject) => {
         postMessageToMiniProgram(
             Messages.removeStorage,
-            (error, data) => {
+            (error) => {
 
                 if (error) {
 
@@ -858,7 +859,7 @@ export const clearStorage = async () => {
     return new Promise((resolve, reject) => {
         postMessageToMiniProgram(
             Messages.clearStorage,
-            (error, data) => {
+            (error: any, data: any) => {
 
                 if (error) {
 
@@ -884,7 +885,7 @@ export const getAppId = () => {
     return new Promise((resolve, reject) => {
         postMessageToMiniProgram(
             Messages.getAppId,
-            (error, data) => {
+            (error: any, data: any) => {
 
                 if (error) {
 
@@ -922,7 +923,7 @@ export const deeplink = (uri: string) => {
     return new Promise<void>((resolve, reject) => {
         postMessageToMiniProgram(
             Messages.deeplink,
-            (error, data) => {
+            (error) => {
 
                 if (error) {
 
@@ -968,7 +969,7 @@ export const openBrowser = (url: string) => {
     return new Promise<void>((resolve, reject) => {
         postMessageToMiniProgram(
             Messages.openBrowser,
-            (error, data) => {
+            (error: any, data: any) => {
 
                 if (error) {
 
@@ -1021,7 +1022,7 @@ export const adjustTrackEvent = (
     return new Promise((resolve, reject) => {
         postMessageToMiniProgram(
             Messages.adjustTrackEvent,
-            (error, data) => {
+            (error: any, data: any) => {
 
                 if (error) {
 
